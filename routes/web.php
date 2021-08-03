@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/shop', function () {
-    return view('shop');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/shops', [ShopController::class, 'shop'])->name('posts.shop');
+
+Route::get('/carts', [CartController::class, 'cart'])->name('posts.cart');
